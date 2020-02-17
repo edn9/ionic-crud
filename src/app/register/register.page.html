@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
-      Login
+      Register
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,25 +14,29 @@
   </ion-header>
 
   <div id="container">
-
     <strong>
-      Welcome
+      Crie sua Conta
     </strong>
     <ion-list>
       <form (ngSubmit)="onSubmit()">
         <ion-item>
+          <ion-label>Nome</ion-label>
+          <ion-input [(ngModel)]="register.name" name="name" type="text" placeholder="Username" required>
+          </ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label>Email</ion-label>
-          <ion-input [(ngModel)]="email" name="email" type="email" placeholder="usuario@email.com" required>
+          <ion-input [(ngModel)]="register.email" name="email" type="email" placeholder="usuario@email.com" required>
           </ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Senha</ion-label>
-          <ion-input [(ngModel)]="password" name="password" type="password" placeholder="******" required>
+          <ion-input [(ngModel)]="register.password" name="password" type="password" placeholder="******" required>
           </ion-input>
         </ion-item>
-        <ion-button expand="block" type="submit">Entrar</ion-button>
-        <ion-button expand="block" fill="outline" (click)="register()">Registrar
+        <ion-button expand="block" type="submit">Salvar
         </ion-button>
+        <ion-button expand="block" fill="outline" (click)="back()">Voltar</ion-button>
       </form>
     </ion-list>
   </div>
