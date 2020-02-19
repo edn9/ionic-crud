@@ -22,12 +22,12 @@
       <form (ngSubmit)="onSubmit()">
         <ion-item>
           <ion-label>Email</ion-label>
-          <ion-input [(ngModel)]="email" name="email" type="email" placeholder="usuario@email.com" required>
+          <ion-input [(ngModel)]="login.email" name="email" type="email" placeholder="usuario@email.com" required>
           </ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Senha</ion-label>
-          <ion-input [(ngModel)]="password" name="password" type="password" placeholder="******" required>
+          <ion-input [(ngModel)]="login.password" name="password" type="password" placeholder="******" required>
           </ion-input>
         </ion-item>
         <ion-button expand="block" type="submit">Entrar</ion-button>

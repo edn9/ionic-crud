@@ -17,18 +17,15 @@ export class RegisterPage implements OnInit {
 
   onSubmit() {
     this.register.action = "insert";
-    this.http.post("http://localhost/api/controller/Register.php", this.register).subscribe(data => {
+    this.http.post("http://192.168.0.129/api/controller/Register.php", this.register).subscribe(data => {
       if (data['status'] == "success") {
         var message = "Registrado com sucesso!";
-        console.log(message);
         this.showToast(message);
       } else {
         var message = data['status'];
-        console.log(message);
         this.showToast(message);
       }
     }, err => {
-      console.log(err);
       this.showToast(err);
     })
   }

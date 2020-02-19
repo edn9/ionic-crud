@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,26 +8,40 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  email: string = "";
-  password: string = "";
   login: any = {};
-  constructor(public navCtrl: NavController, private http: HttpClient) { }
+  toast: any;
+  constructor(public navCtrl: NavController, private http: HttpClient, public toastController: ToastController) { }
 
   onSubmit() {
-    this.login = this.email, this.password;
-    console.log(this.login);
-    this.http.post('api/controller/AuthController.php', this.login).subscribe(data => {
-      console.log(data);
-      let result = JSON.parse(data["_body"]);
-      if (result.status == "success") {
-        console.log('Sucesso!')
-      }
-      else {
-        console.log('Algo deu errado!')
+    //this.login = this.email, this.password;
+    this.login.action = "login";
+    this.http.post('http://192.168.0.129/api/controller/AuthController.php', this.login).subscribe(data => {
+      if (data['status'] == "success") {
+        var message = "Logado com sucesso!";
+        this.showToast(message);
+        this.navCtrl.navigateForward('/dashboard');
+      } else {
+        var message = data['status'];
+        this.showToast(message);
       }
     }, err => {
-      console.log(err);
+      this.showToast(err);
     })
+  }
+
+  async showToast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'middle',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel'
+        }
+      ]
+    });
+    toast.present();
   }
 
   register() {
