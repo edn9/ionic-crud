@@ -15,7 +15,7 @@ export class HomePage {
   onSubmit() {
     //this.login = this.email, this.password;
     this.login.action = "login";
-    this.http.post('http://192.168.0.129/api/controller/AuthController.php', this.login).subscribe(data => {
+    this.http.post('http://localhost/api/controller/AuthController.php', this.login).subscribe(data => {
       if (data['status'] == "success") {
         var message = "Logado com sucesso!";
         this.showToast(message);

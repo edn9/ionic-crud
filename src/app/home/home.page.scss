@@ -1,11 +1,25 @@
-#container {
-  text-align: center;
+.content {
+  background-color: #7D4698;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.content h1 {
+  color: #7D4698;
+}
+
+.tLabel {
+  color: #7D4698;
+}
+
+#container {
+  color: #7D4698;
+  margin: 10px;
+  text-align: center;
 }
 
 #container strong {
@@ -24,8 +38,4 @@
 
 #container a {
   text-decoration: none;
-}
-
-ion-content ion-toolbar {
-  --background: translucent;
 }

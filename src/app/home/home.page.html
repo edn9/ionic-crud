@@ -1,39 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Slim Crud</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-
-    <strong>
-      Welcome
-    </strong>
-    <ion-list>
-      <form (ngSubmit)="onSubmit()">
-        <ion-item>
-          <ion-label>Email</ion-label>
-          <ion-input [(ngModel)]="login.email" name="email" type="email" placeholder="usuario@email.com" required>
-          </ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Senha</ion-label>
-          <ion-input [(ngModel)]="login.password" name="password" type="password" placeholder="******" required>
-          </ion-input>
-        </ion-item>
-        <ion-button expand="block" type="submit">Entrar</ion-button>
-        <ion-button expand="block" fill="outline" (click)="register()">Registrar
-        </ion-button>
-      </form>
-    </ion-list>
+<ion-content>
+  <div class="content">
+    <ion-card>
+      <ion-card-header>
+        <ion-row>
+          <ion-col>
+            <h1>
+              Login
+            </h1>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <form (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label class="tLabel">Email:</ion-label>
+            <ion-input [(ngModel)]="login.email" name="email" type="email" placeholder="usuario@email.com" required>
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="tLabel">Password:</ion-label>
+            <ion-input [(ngModel)]="login.password" name="password" type="password" placeholder="******" required>
+            </ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit">Entrar
+          </ion-button>
+        </form>
+        <ion-row>
+          <ion-col>
+            <h2>
+              <a (click)="register()" style="float: right;">
+                <b>Criar conta</b>
+              </a>
+            </h2>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
